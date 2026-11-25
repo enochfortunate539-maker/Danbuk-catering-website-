@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote | Danbuk Catering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2 { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+
+   <nav class="flex flex-col px-8 py-6 bg-white shadow-sm sticky top-0 z-50">
+    <!-- Top Row Container -->
+    <div class="flex items-center justify-between w-full">
+        <div class="text-2xl font-bold text-orange-600">Danbuk <span class="text-gray-800">Taste Hub</span></div>
+        
+        <!-- Desktop Links (Hidden on Mobile) -->
+        <div class="hidden md:flex space-x-8 font-medium text-gray-600">
+            <a href="index.html" class="hover:text-orange-600 transition">Home</a>
+            <a href="menu.html" class="hover:text-orange-600 transition">Menu</a>
+            <a href="ourstory.html" class="hover:text-orange-600 transition">Our Story</a>
+            <a href="contact.html" class="hover:text-orange-600 transition">Contact</a>
+        </div>
+        
+        <!-- Desktop Right Side Buttons (Hidden on Mobile) -->
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="tel:+2347063252074" class="text-gray-600 font-medium hover:text-orange-800">
+                📞 +234 706 325 2074
+            </a>
+            <a href="contact.html" class="bg-orange-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-orange-400 transition">
+                Order Now
+            </a>
+        </div>
+
+        <!-- Mobile Hamburger Button Trigger (Visible ONLY on Mobile) -->
+        <button id="menu-toggle" onclick="toggleMobileMenu(event)" class="md:hidden block p-3 cursor-pointer text-gray-800 hover:text-orange-600 focus:outline-none" aria-label="Toggle navigation">
+            <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Menu Container Dropdown (Hidden by default, controlled by JS) -->
+    <div id="mobile-menu" style="display: none;" class="bg-white border-t border-gray-100 px-8 py-4 shadow-lg flex flex-col space-y-4 font-medium text-gray-600">
+        <a href="index.html" class="hover:text-orange-600 transition py-2 border-b border-gray-50">Home</a>
+        <a href="menu.html" class="hover:text-orange-600 transition py-2 border-b border-gray-50">Menu</a>
+        <a href="ourstory.html" class="hover:text-orange-600 transition py-2 border-b border-gray-50">Our Story</a>
+        <a href="contact.html" class="hover:text-orange-600 transition py-2 border-b border-gray-50">Contact</a>
+        
+        <div class="flex flex-col gap-4 pt-2">
+            <a href="tel:+2347063252074" class="text-gray-600 font-medium hover:text-orange-800">
+                📞 +234 706 325 2074
+            </a>
+            <a href="contact.html" class="bg-orange-600 text-white text-center px-6 py-2 rounded-full font-semibold hover:bg-orange-400 transition">
+                Order Now
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+ <section class="bg-gray-900 py-8 text-center text-white">
+        
+         <div class="max-w-4xl mx-auto">
+        <p class="text-orange-500 uppercase tracking-[0.4em] text-[14px] font-bold mb-4">
+            WHAT WE SERVE
+        </p>
+        
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+            Our Menu
+        </h1>
+
+        <p class="text-gray-400 text-lg md:text-xl max-w-xl mx-auto font-light leading-relaxed">
+            Explore our full range of authentic Nigerian dishes, perfect for any event.
+        </p>
+    </div>
+    </section>
+
+
+
+<section class="py-10 bg-[#fdfdfd] border-b border-gray-100">
+    <!-- Centered flex container that wraps naturally into multiple rows -->
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="flex flex-wrap items-center justify-center gap-3">
+            
+            <button onclick="filterMenu('all')" class="whitespace-nowrap bg-[#b35a34] text-white px-6 sm:px-10 py-3 rounded-full font-bold text-sm sm:text-base shadow-md hover:scale-105 transition-transform flex-shrink-0">
+                All
+            </button>
+
+            <button onclick="filterMenu('rice')" class="whitespace-nowrap bg-white text-gray-600 px-5 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base border border-gray-200 hover:bg-gray-50 hover:border-orange-500 transition-all shadow-sm flex-shrink-0">
+                Rice Dishes
+            </button>
+
+            <button onclick="filterMenu('soups')" class="whitespace-nowrap bg-white text-gray-600 px-5 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base border border-gray-200 hover:bg-gray-50 hover:border-orange-500 transition-all shadow-sm flex-shrink-0">
+                Soups & Stews
+            </button>
+
+            <button onclick="filterMenu('swallows')" class="whitespace-nowrap bg-white text-gray-600 px-5 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base border border-gray-200 hover:bg-gray-50 hover:border-orange-500 transition-all shadow-sm flex-shrink-0">
+                Swallows
+            </button>
+
+            <button onclick="filterMenu('chops')" class="whitespace-nowrap bg-white text-gray-600 px-5 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base border border-gray-200 hover:bg-gray-50 hover:border-orange-500 transition-all shadow-sm flex-shrink-0">
+                Small Chops
+            </button>
+
+            <button onclick="filterMenu('proteins')" class="whitespace-nowrap bg-white text-gray-600 px-5 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base border border-gray-200 hover:bg-gray-50 hover:border-orange-500 transition-all shadow-sm flex-shrink-0">
+                Proteins
+            </button>
+
+            <button onclick="filterMenu('drinks')" class="whitespace-nowrap bg-white text-gray-600 px-5 sm:px-8 py-3 rounded-full font-semibold text-sm sm:text-base border border-gray-200 hover:bg-gray-50 hover:border-orange-500 transition-all shadow-sm flex-shrink-0">
+                Drinks
+            </button>
+
+        </div>
+    </div>
+</section>
+
+
+<div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div class="menu-item rice bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+            <img src="fried rice.png" alt="Fried Rice" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-bold">Fried Rice</h3>
+                <p class="text-gray-600">Deliciously seasoned fried rice with veggies.</p>
+            </div>
+        </div>
+
+<div class="menu-item rice bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="jollof.png" alt="Jollof Rice" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Jollof Rice</h3>
+        <p class="text-gray-600">Classic Nigerian smoky Jollof rice served with plantain.</p>
+    </div>
+</div>
+
+<div class="menu-item rice bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="ofada rice.png" alt="Jollof Rice" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">ofada Rice & sauce</h3>
+        <p class="text-gray-600">Local brown rice served with locust bean sauce.</p>
+    </div>
+</div>
+
+
+<div class="menu-item chops bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="moi moi.png" alt="Small Chops" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">moi moi</h3>
+        <p class="text-gray-600">Steamed bean pudding with eggs, fish, and crayfish..</p>
+    </div>
+</div>
+
+<div class="menu-item chops bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="suya meat.png" alt="Small Chops" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">suya Platter</h3>
+        <p class="text-gray-600">Spiced grilled beef with onions and tomatoes.</p>
+    </div>
+</div>
+
+
+<div class="menu-item chops bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="puff puff.png" alt="Small Chops" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">puff puff</h3>
+        <p class="text-gray-600">Soft fluffy fried dough balls, a Nigerian classic snack..</p>
+    </div>
+</div>
+
+
+<div class="menu-item chops bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="akara.png" alt="Small Chops" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">akara</h3>
+        <p class="text-gray-600">Deep fried bean cakes, crispy outside and fluffy inside.</p>
+    </div>
+</div>
+
+<div class="menu-item chops bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="springroll.png" alt="Small Chops" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">spring roll</h3>
+        <p class="text-gray-600"> Crispy rolls filled with seasoned vegetables and chicken..</p>
+    </div>
+</div>
+
+
+<div class="menu-item soups bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="egusi soup.png" alt="Egusi Soup" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Egusi Soup</h3>
+        <p class="text-gray-600">Rich melon seed soup with spinach and assorted meats.</p>
+    </div>
+</div>
+
+<div class="menu-item soups bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="pepper soup.png" alt="pepper Soup" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">pepper Soup</h3>
+        <p class="text-gray-600">Aromatic goat meat soup with native spices.</p>
+    </div>
+</div>
+
+<div class="menu-item soups bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="banga soup.png" alt="banga Soup" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Banga Soup</h3>
+        <p class="text-gray-600">Palm nut soup with spices, oforiji, and assorted meat.</p>
+    </div>
+</div>
+
+
+<div class="menu-item soups bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="okra soup.png" alt="okra Soup" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">okra Soup</h3>
+        <p class="text-gray-600">Silky okra soup with fish, crayfish, and meat.</p>
+    </div>
+</div>
+
+
+<div class="menu-item soups bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="ofe onugbu.png" alt="ofe onugbu" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">ofe onugbu soup</h3>
+        <p class="text-gray-600">Bitter leaf soup cooked with cocoyam and assorted protein.</p>
+    </div>
+</div>
+
+<div class="menu-item swallows bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="pounded yam.png" alt="Pounded Yam" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Pounded Yam</h3>
+        <p class="text-gray-600">Smooth, stretchy pounded yam served with your choice of soup.</p>
+    </div>
+</div>
+
+
+<div class="menu-item swallows bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="eba.png" alt="eba " class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Eba (garri)</h3>
+        <p class="text-gray-600">Classic cassava fufu, great with any Nigerian soup.</p>
+    </div>
+</div>
+
+
+<div class="menu-item swallows bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="amala.png" alt="amala" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Amala</h3>
+        <p class="text-gray-600">Dark yam flour swallow, great with ewedu and gbegiri.</p>
+    </div>
+</div>
+
+<div class="menu-item proteins bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="chicken.png" alt="Grilled Chicken" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Grilled Chicken</h3>
+        <p class="text-gray-600">Well-marinated jumbo chicken lap, grilled to perfection.</p>
+    </div>
+</div>
+
+<div class="menu-item proteins bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="beef.png" alt="Assorted Meat" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Assorted Meat</h3>
+        <p class="text-gray-600">A mix of shaki, liver, and beef in spicy pepper sauce.</p>
+    </div>
+</div>
+
+<div class="menu-item proteins bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="grilledfish.png" alt="fish" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Grilled Fish</h3>
+        <p class="text-gray-600">Whole fish marinated and grilled with local spices..</p>
+    </div>
+</div>
+
+
+<div class="menu-item proteins bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="goat meat.png" alt="goat Meat" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Goat meat</h3>
+        <p class="text-gray-600">Tender goat meat in a rich, spicy pepper sauce.</p>
+    </div>
+</div>
+
+<div class="menu-item drinks bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="chapman.png" alt="Chapman" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Classic Chapman</h3>
+        <p class="text-gray-600">Our signature Nigerian mocktail with bitters and citrus.</p>
+    </div>
+</div>
+
+<div class="menu-item drinks bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="zobo drink.png" alt="Zobo" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">Zobo Drink</h3>
+        <p class="text-gray-600">Chilled hibiscus tea infused with ginger and pineapple.</p>
+    </div>
+</div>
+
+
+<div class="menu-item drinks bg-white rounded-2xl overflow-hidden shadow-lg group hover:scale-105 transition-transform duration-300 cursor-pointer">
+    <img src="kunu.png" alt="Zobo" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
+    <div class="p-6">
+        <h3 class="text-xl font-bold">kunu Drink</h3>
+        <p class="text-gray-600">Refreshing millet-based drink, spiced and chilled.</p>
+    </div>
+</div>
+
+
+
+
+
+        </div>
+
+
+</div>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<script>
+function filterMenu(category) {
+    const items = document.querySelectorAll('.menu-item');
+    items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+</script>
+
+
+ <footer class="bg-gray-800 text-white py-12 px-8">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start border-b border-gray-700 pb-8 gap-16">
+    
+    <!-- Brand Section -->
+    <div class="mb-6 md:mb-0 text-center md:text-left">
+      <div class="mb-6 md:mb-2">
+        <h2 class="text-2xl font-bold text-orange-500 mb-2">Danbuk Taste Hub</h2>
+        <p class="text-gray-400">Quality ingredients, exceptional taste.</p>
+      </div>
+      <div class="flex justify-center md:justify-start space-x-8 text-gray-500">
+        <a href="#" class="text-3xl hover:text-orange-500 transition duration-300"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-3xl hover:text-orange-500 transition duration-300"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-3xl hover:text-orange-500 transition duration-300"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick Links & Contact Info -->
+    <div class="flex flex-col md:flex-row gap-16">
+      <div>
+        <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="index.html" class="hover:text-orange-500 transition">Home</a></li>
+          <li><a href="menu.html" class="hover:text-orange-500 transition">Menu</a></li>
+          <li><a href="ourstory.html" class="hover:text-orange-500 transition">our story</a></li>
+          <li><a href="contact.html" class="hover:text-orange-500 transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+        <ul class="space-y-2 text-gray-400">
+          <li class="flex items-center gap-2"><i class="fas fa-phone text-orange-500"></i> +234 706 35 2074</li>
+          <li class="flex items-center gap-2"><i class="fas fa-envelope text-orange-500"></i>danbukcateringservices@gmail.com</li>
+          <li class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-orange-500"></i> ekiti, Nigeria</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center text-gray-500 text-sm mt-8">
+    &copy; 2026 Danbuk Taste Hub. Created with passion for flavor.
+  </div>
+</footer>
+
+
+
+
+<!-- JAVASCRIPT ACTION FOR MOBILE RESPONSIVENESS -->
+      <script>
+    function toggleMobileMenu(event) {
+        if (event) event.preventDefault();
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon'); // 1. Find the icon
+        
+        if (mobileMenu) {
+            if (mobileMenu.style.display === 'none') {
+                mobileMenu.style.display = 'flex';
+                
+                // 2. Turns hamburger into X when opening
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                }
+            } else {
+                mobileMenu.style.display = 'none';
+                
+                // 3. Turns X back into hamburger when closing
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            }
+        }
+    }
+</script>
+
+
+
+
+</body>
+
+</html>
+
+
